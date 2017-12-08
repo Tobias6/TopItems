@@ -41,6 +41,12 @@ class ContentController extends Controller
         $resultItems = $itemRepository
             ->search($itemColumns, $itemFilter, $itemParams);
 
+        $items = array();
+        foreach ($resultItems as $item)
+        {
+            $items[] = $item;
+        }
+
         $templateData = array(
             'resultCount' => $resultItems->count(),
             'currentItems' => $items,
